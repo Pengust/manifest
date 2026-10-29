@@ -26,10 +26,21 @@ After syncing, the tree has AOSP at its usual paths, with Rust OS under
 `rustos/`:
 
 ```
-rustos/os                       Rust OS (Pengust/rustos)
+rustos/os                       the base OS (Pengust/rustos)
+rustos/os/android               Android integration (Pengust/android)
+rustos/os/apps/settings         Settings (Pengust/apps_settings)
+rustos/os/apps/phone            Phone (Pengust/apps_phone)
+rustos/os/apps/messages         Messages (Pengust/apps_messages)
+rustos/os/apps/modem            modem library for Phone and Messages (Pengust/apps_modem)
+rustos/os/apps/notifyd          notification daemon (Pengust/apps_notifyd)
 rustos/devices/nothing_phone2   device repository (Pengust/device_nothing_phone2)
 rustos/kernels/nothing_pong     kernel (Pengust/kernel_nothing_pong-rustos, rustos-7.2-full)
+rustos/external/android_translation_layer   ATL with Rust OS's fixes (Pengust/android_translation_layer)
 ```
+
+As in AOSP, every part is a repository of its own. The apps and Android
+integration are checked out inside the base, where its build and relative
+paths expect them, and the base's `.gitignore` leaves them out.
 
 AOSP's build system (Soong) must not see `rustos/`: the Android build copies
 the products from there into `device/`, so Soong would find every module

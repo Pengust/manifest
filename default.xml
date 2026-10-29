@@ -8,7 +8,17 @@
 
   <include name="aosp.xml" />
 
+  <!-- the base OS; the apps and Android are repositories of their own,
+       checked out inside it where its build expects them -->
   <project remote="pengust" name="rustos" path="rustos/os" revision="main" groups="rustos" />
+  <project remote="pengust" name="android" path="rustos/os/android" revision="main" groups="rustos" />
+  <project remote="pengust" name="apps_settings" path="rustos/os/apps/settings" revision="main" groups="rustos,apps" />
+  <project remote="pengust" name="apps_phone" path="rustos/os/apps/phone" revision="main" groups="rustos,apps" />
+  <project remote="pengust" name="apps_messages" path="rustos/os/apps/messages" revision="main" groups="rustos,apps" />
+  <project remote="pengust" name="apps_modem" path="rustos/os/apps/modem" revision="main" groups="rustos,apps" />
+  <project remote="pengust" name="apps_notifyd" path="rustos/os/apps/notifyd" revision="main" groups="rustos,apps" />
+  <project remote="pengust" name="android_translation_layer" path="rustos/external/android_translation_layer" revision="main" groups="rustos,atl" />
+
   <project remote="pengust" name="device_nothing_phone2" path="rustos/devices/nothing_phone2" revision="main" groups="rustos,pong" />
   <project remote="pengust" name="kernel_nothing_pong-rustos" path="rustos/kernels/nothing_pong" revision="rustos-7.2-full" clone-depth="1" groups="rustos,pong,kernel" />
 </manifest>
