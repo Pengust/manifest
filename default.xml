@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Rust OS with its Android, built from source.
+<!-- Rust OS, every repository it is built from.
      aosp.xml: the AOSP projects Rust OS's Android is built from, pinned.
      Below: Rust OS itself, under rustos/ (prepare.sh hides that directory
-     from Soong; the Android build copies what it needs into device/). -->
+     from AOSP's build). -->
 <manifest>
   <remote name="pengust" fetch="https://github.com/Pengust/" />
 
@@ -10,7 +10,9 @@
 
   <!-- the base OS; the apps and Android are repositories of their own,
        checked out inside it where its build expects them -->
-  <project remote="pengust" name="rustos" path="rustos/os" revision="main" groups="rustos" />
+  <project remote="pengust" name="rustos" path="rustos/os" revision="main" groups="rustos">
+    <linkfile src="build/envsetup.sh" dest="rustos/envsetup.sh" />
+  </project>
   <project remote="pengust" name="android" path="rustos/os/android" revision="main" groups="rustos" />
   <project remote="pengust" name="apps_settings" path="rustos/os/apps/settings" revision="main" groups="rustos,apps" />
   <project remote="pengust" name="apps_phone" path="rustos/os/apps/phone" revision="main" groups="rustos,apps" />
@@ -19,6 +21,8 @@
   <project remote="pengust" name="apps_notifyd" path="rustos/os/apps/notifyd" revision="main" groups="rustos,apps" />
   <project remote="pengust" name="android_translation_layer" path="rustos/external/android_translation_layer" revision="main" groups="rustos,atl" />
 
+  <!-- devices and their kernels -->
+  <project remote="pengust" name="device_generic_pc" path="rustos/devices/pc" revision="main" groups="rustos,pc" />
   <project remote="pengust" name="device_nothing_phone2" path="rustos/devices/nothing_phone2" revision="main" groups="rustos,pong" />
   <project remote="pengust" name="kernel_nothing_pong-rustos" path="rustos/kernels/nothing_pong" revision="rustos-7.2-full" clone-depth="1" groups="rustos,pong,kernel" />
 </manifest>
