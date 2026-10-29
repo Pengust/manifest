@@ -1,0 +1,4 @@
+# prebuilts/misc: top-level files and the directories the build uses
+/*
+!/*/
+/common/

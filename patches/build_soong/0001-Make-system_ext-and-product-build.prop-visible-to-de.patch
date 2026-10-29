@@ -1,0 +1,37 @@
+From ea21e34604acce3bb3718634f2c18d7ce527ce6c Mon Sep 17 00:00:00 2001
+From: redducc <sushmit718@gmail.com>
+Date: Tue, 27 Oct 2026 16:25:22 +0000
+Subject: [PATCH] Make system_ext and product build.prop visible to
+ device/rustos
+
+Rust OS defines its own system image (device/rustos) from the same
+base partitions as the generic images.
+
+Change-Id: I0bd557dc1c998b84a5255f6d9e5c9913c472dd01
+---
+ Android.bp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Android.bp b/Android.bp
+index 7c1d096..6c1dc7a 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -256,6 +256,7 @@ build_prop {
+         dest: "build.prop-system_ext",
+     },
+     visibility: [
++        "//device/rustos",
+         "//build/make/target/product/gsi",
+         "//build/soong/fsgen",
+     ],
+@@ -272,6 +273,7 @@ build_prop {
+         dest: "build.prop-product",
+     },
+     visibility: [
++        "//device/rustos",
+         "//build/make/target/product/gsi",
+         "//build/soong/fsgen",
+         "//bootable/recovery/tests/ota",
+-- 
+2.43.0
+

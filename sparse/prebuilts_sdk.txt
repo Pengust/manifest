@@ -1,0 +1,22 @@
+# prebuilts/sdk: top-level files and the directories the build uses
+/*
+!/*/
+/14/
+/15/
+/28/
+/29/
+/30/
+/31/
+/33/
+/34/
+/35/
+/36/
+/36.1/
+/37.0/
+/8/
+/9/
+/current/
+/extensions/
+/latest/
+/tools/
+/update_prebuilts/

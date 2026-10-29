@@ -1,0 +1,4 @@
+# prebuilts/jdk/jdk21: top-level files and the directories the build uses
+/*
+!/*/
+/linux-x86/

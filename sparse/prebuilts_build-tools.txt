@@ -1,0 +1,7 @@
+# prebuilts/build-tools: top-level files and the directories the build uses
+/*
+!/*/
+/common/
+/linux-x86/
+/path/
+/sysroots/

@@ -1,0 +1,6 @@
+# prebuilts/clang/host/linux-x86: top-level files and the directories the build uses
+/*
+!/*/
+/clang-r584948/
+/clang-r584948b/
+/soong/

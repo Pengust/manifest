@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Rust OS with its Android, built from source.
+     aosp.xml: the AOSP projects Rust OS's Android is built from, pinned.
+     Below: Rust OS itself, under rustos/ (prepare.sh hides that directory
+     from Soong; the Android build copies what it needs into device/). -->
+<manifest>
+  <remote name="pengust" fetch="https://github.com/Pengust/" />
+
+  <include name="aosp.xml" />
+
+  <project remote="pengust" name="rustos" path="rustos/os" revision="main" groups="rustos" />
+  <project remote="pengust" name="device_nothing_phone2" path="rustos/devices/nothing_phone2" revision="main" groups="rustos,pong" />
+  <project remote="pengust" name="kernel_nothing_pong-rustos" path="rustos/kernels/nothing_pong" revision="rustos-7.2-full" clone-depth="1" groups="rustos,pong,kernel" />
+</manifest>
