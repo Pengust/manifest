@@ -38,7 +38,6 @@ rustos/os/apps/<app>               apps_settings, apps_phone, apps_messages, app
 rustos/devices/pc                  device_generic_pc
 rustos/devices/nothing_phone2      device_nothing_phone2
 rustos/kernels/nothing_pong        kernel_nothing_pong-rustos
-rustos/external/android_translation_layer
 ```
 
 ## Building

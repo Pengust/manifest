@@ -19,7 +19,6 @@
   <project remote="pengust" name="apps_messages" path="rustos/os/apps/messages" revision="main" groups="rustos,apps" />
   <project remote="pengust" name="apps_modem" path="rustos/os/apps/modem" revision="main" groups="rustos,apps" />
   <project remote="pengust" name="apps_notifyd" path="rustos/os/apps/notifyd" revision="main" groups="rustos,apps" />
-  <project remote="pengust" name="android_translation_layer" path="rustos/external/android_translation_layer" revision="main" groups="rustos,atl" />
 
   <!-- devices and their kernels -->
   <project remote="pengust" name="device_generic_pc" path="rustos/devices/pc" revision="main" groups="rustos,pc" />
