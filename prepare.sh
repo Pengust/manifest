@@ -1,6 +1,6 @@
 #!/bin/bash
 # Check out the tree after `repo init` (README.md): fetch everything, check
-# the big prebuilts out sparsely, apply Rust OS's patches to AOSP, and hide
+# the big prebuilts out sparsely, and hide
 # rustos/ from Soong.
 # usage: .repo/manifests/prepare.sh [JOBS]
 set -e
@@ -27,17 +27,6 @@ for list in "$M"/sparse/*.txt; do
 	fi
 done
 repo sync -l -c -j"$J"
-
-# Rust OS's changes to AOSP projects: patches/<project path, / as _>/
-for dir in "$M"/patches/*/; do
-	project=$(basename "$dir" | tr _ /)
-	for patch in "$dir"*.patch; do
-		# already there when preparing again
-		subject=$(sed -n 's/^Subject: \(\[PATCH[^]]*\] \)\{0,1\}//p' "$patch" | head -1)
-		git -C "$project" log -50 --format=%s | grep -qxF "$subject" && continue
-		git -C "$project" am -q --keep-cr "$patch"
-	done
-done
 
 # Soong reads every Android.bp under the top; the products in rustos/ are
 # copied into device/ by the build, so it must not see them twice

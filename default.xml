@@ -24,4 +24,7 @@
   <project remote="pengust" name="device_generic_pc" path="rustos/devices/pc" revision="main" groups="rustos,pc" />
   <project remote="pengust" name="device_nothing_phone2" path="rustos/devices/nothing_phone2" revision="main" groups="rustos,pong" />
   <project remote="pengust" name="kernel_nothing_pong-rustos" path="rustos/kernels/nothing_pong" revision="rustos-7.2-full" clone-depth="1" groups="rustos,pong,kernel" />
+
+  <!-- other projects Rust OS builds with its changes: forks, branch rustos -->
+  <project remote="pengust" name="hexagonrpc" path="rustos/external/hexagonrpc" revision="rustos" groups="rustos,pong" />
 </manifest>

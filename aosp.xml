@@ -4,6 +4,7 @@
      from the build's own inputs; see android/README.md) -->
 <manifest>
   <remote name="aosp" fetch="https://android.googlesource.com/" review="https://android-review.googlesource.com/" />
+  <remote name="pengust" fetch="https://github.com/Pengust/" />
   <default remote="aosp" revision="android17-release" sync-j="4" />
   <project name="device/generic/car" revision="f7883270a86b40fb7c3f11f2f755af4a43d0beef" groups="pdk" />
   <project name="device/generic/goldfish" revision="296e55aa0244e8929e393e00e34471fef2a5d662" groups="pdk" />
@@ -23,7 +24,7 @@
   </project>
   <project name="platform/build/blueprint" path="build/blueprint" revision="7f2058de8155b05ea3c3f8317d33bfe732cacf8b" groups="pdk,tradefed" />
   <project name="platform/build/release" path="build/release" revision="c85f4aebe46714235599a9bd6430a0fe30c6e8d5" groups="pdk,tradefed,sysui-studio" />
-  <project name="platform/build/soong" path="build/soong" revision="6722dd8833db7482df1a2543ca3fcf67ddf0f7b1" groups="pdk,tradefed,sysui-studio">
+  <project remote="pengust" name="android_build_soong" path="build/soong" revision="2a8df6840581c868261c25928e3d1f37772884e8" upstream="rustos" groups="pdk,tradefed,sysui-studio">
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
@@ -335,7 +336,7 @@
   <project name="platform/frameworks/rs" path="frameworks/rs" revision="2efe31da05c6075dd280c9f1b1ea18108971798e" groups="pdk" />
   <project name="platform/frameworks/wilhelm" path="frameworks/wilhelm" revision="cbc8f246cd0c18d3c286ab39620846badd0676fb" groups="pdk-cw-fs,pdk-fs" />
   <project name="platform/hardware/google/apf" path="hardware/google/apf" revision="ed844b2ed7997f2e5599db9a52321e7c5fdb96de" groups="pdk" />
-  <project name="platform/hardware/interfaces" path="hardware/interfaces" revision="0162af698935100a590b7359581ac8b1b80693e5" groups="pdk,sysui-studio" />
+  <project remote="pengust" name="android_hardware_interfaces" path="hardware/interfaces" revision="fc77e2f4b57727d3f3e3d9a7edfe4823e9af6cf9" upstream="rustos" groups="pdk,sysui-studio" />
   <project name="platform/hardware/libhardware" path="hardware/libhardware" revision="97ee3e33ec5ba48c0eca8341ed377ac4497a0678" groups="pdk" />
   <project name="platform/hardware/libhardware_legacy" path="hardware/libhardware_legacy" revision="2a073cd42ec822914ed4e680e7b708485d3a172b" groups="pdk" />
   <project name="platform/hardware/nxp/nfc" path="hardware/nxp/nfc" revision="68931d93d3b2ccfc71553cb03088fe5d6fb5dd30" groups="pdk" />
@@ -397,7 +398,7 @@
   <project name="platform/packages/modules/Telephony" path="packages/modules/Telephony" revision="d83f23a96fbe6d68942d8d7245dbd3db91e9c711" groups="pdk-cw-fs,pdk-fs" />
   <project name="platform/packages/modules/UprobeStats" path="packages/modules/UprobeStats" revision="7cffa93ccbe6c25182cf27a46eeba75f4f9f551f" groups="pdk-cw-fs,pdk-fs" />
   <project name="platform/packages/modules/Uwb" path="packages/modules/Uwb" revision="7c9e03046ff41cc28cf794cc2eda306fbc40279e" groups="pdk-cw-fs,pdk-fs" />
-  <project name="platform/packages/modules/Virtualization" path="packages/modules/Virtualization" revision="22f1c9ee92b146e10c8f5e71338618f77ab1631e" groups="pdk" />
+  <project remote="pengust" name="android_packages_modules_Virtualization" path="packages/modules/Virtualization" revision="0f5d8c2f3c0a8cf240320710375d915b2bf4abe2" upstream="rustos" groups="pdk" />
   <project name="platform/packages/modules/WebApp" path="packages/modules/WebApp" revision="551872e35de50df9fa39fa871129db512c18565b" groups="pdk-fs,pdk-cw-tvc" />
   <project name="platform/packages/modules/Wifi" path="packages/modules/Wifi" revision="67beff9acf0e91046d2a9a36a68cb06ef263d1f1" groups="pdk-cw-fs,pdk-fs,sysui-studio" />
   <project name="platform/packages/modules/adb" path="packages/modules/adb" revision="9084198a2d4b0f6a0f174260fb42da33485b684d" groups="pdk" />

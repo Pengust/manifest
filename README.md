@@ -6,9 +6,8 @@ every repository it is built from, checked out where the build expects it.
 | file | what |
 |---|---|
 | `default.xml` | the manifest: `aosp.xml` and Rust OS's repositories |
-| `aosp.xml` | the AOSP projects Rust OS's Android is built from (528 of `android17-release`'s 1,084), pinned |
+| `aosp.xml` | the AOSP projects Rust OS's Android is built from (528 of `android17-release`'s 1,084), pinned; the ones Rust OS changes come from its forks here (`android_build_soong`, `android_hardware_interfaces`, `android_packages_modules_Virtualization`) |
 | `sparse/` | for each big AOSP prebuilt, the directories the build reads |
-| `patches/` | Rust OS's changes to AOSP projects (`build_soong` is `build/soong`) |
 | `prepare.sh` | checks the tree out after `repo init` |
 | `update.sh` | takes new AOSP pins from Rust OS's `android/tree/` |
 
@@ -24,8 +23,8 @@ repo init -u https://github.com/Pengust/manifest --depth=1 \
 .repo/manifests/prepare.sh
 ```
 
-`prepare.sh` syncs, checks the big prebuilts out sparsely, applies the
-patches to AOSP, and hides `rustos/` from AOSP's build. Run it again to
+`prepare.sh` syncs, checks the big prebuilts out sparsely, and hides
+`rustos/` from AOSP's build. Run it again to
 update. The clones are partial: git downloads only files that get checked
 out.
 
@@ -38,6 +37,7 @@ rustos/os/apps/<app>               apps_settings, apps_phone, apps_messages, app
 rustos/devices/pc                  device_generic_pc
 rustos/devices/nothing_phone2      device_nothing_phone2
 rustos/kernels/nothing_pong        kernel_nothing_pong-rustos
+rustos/external/hexagonrpc         hexagonrpc (the Phone (2)'s DSP RPC daemon)
 ```
 
 ## Building
